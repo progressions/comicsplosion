@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	
+	<title><%= @page_title || "Comics" %></title>
+	
+	<% @rss_feed ||= latest_pages_path %>
+	
+<%= auto_discovery_link_tag(:rss,
+@rss_feed) %>
+  
+
+<!--[if IE]>
+ <style type="text/css">
+  body {word-wrap: break-word;}
+ </style>
+<![endif]-->
+
+	<%= stylesheet_link_tag '/stylesheets/styles' %>
+	<%= stylesheet_link_tag 'print', :media => 'print' %>
+
+
+<!--[if IE 7]>
+
+<%= stylesheet_link_tag 'styles_ie7' %>
+
+<![endif]--> 
+
+
+<%= javascript_include_tag :defaults %>
+<%= javascript_include_tag 'datebocks_engine.js' %>
+<%= javascript_include_tag 'calendar.js' %>
+<%= javascript_include_tag 'calendar-setup.js' %>
+<%= javascript_include_tag 'calendar-en.js' %>
+	<%= stylesheet_link_tag 'datebocks_engine.css' %>
+	<%= stylesheet_link_tag 'calendar.css' %>
+
+
+</head>
+<% @body_style ||= "body" %>
+<body class="<%= @body_style %>" id="body">
+  
+<div class="outer_container">
+    
+  <div class="header">
+    <%= render :partial => 'shared/account' %>
+    
+    <div class="logo_bar">
+      <%= link_to_unless_current image_tag("/images/logo.png", :alt => "Comicsplosion home", :class => "logo"), home_path %>
+    </div>
+    <!-- end DIV "logo_bar" -->
+    
+    <div class="nav">
+      <h5>
+        <%= link_to_unless_current("Home", home_path) %> | 
+        <%= link_to("Comics", comics_path) %> | 
+        <%= link_to("Users", users_path) %> |
+        <%= link_to("Manage your comics", manage_comics_path(current_user.alias)) if signed_in? %>
+      </h5>
+    </div>
+    <!-- end DIV "nav" -->
+  </div>
+  <!-- end DIV "header" -->
+  
+  <div class="container">
+  
+  <%= yield %>
+  
+  </div>
+  <!-- end DIV "container" -->
+
+  <%= render :partial => 'shared/footer' %>
+
+</div>
+<!-- end DIV "outer-container" -->  
+
+
+
+
+</body>
+</html>

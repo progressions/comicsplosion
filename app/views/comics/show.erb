@@ -1,0 +1,43 @@
+
+
+<div class="content">
+
+<% 
+@pagenum = params[:page] || "1"
+@page_title = "#{@comic.name} page #{@pagenum} of #{@total_pages} | Comicsbrowser"
+@rss_feed = latest_comics_path(@comic.alias)
+%>  
+
+  <!-- info line gives page-specific options like 'add to favorites',
+  'blog this', 'email' plus maintenance options 'edit', 'delete', 'add page' -->
+  
+  <%= render :partial => 'info' %>
+  
+  <%= show_flash :notice %>
+  
+  <div class="page" style="width: <%= img_columns(@page) %>px; margin: auto; margin-top: 20px;">
+      <% link_to "GO TO THIS PAGE", page_path(@page) %>
+    
+      <% unless @page_last %>
+        <%= link_to(image_tag(@page.public_filename, {:class => "page", :id => "comic_page"}), comic_path(:page => @page_next)) %>
+      <% else %>
+        <%= image_tag(@page.public_filename, {:class => "page", :id => "comic_page"}) %>
+      <% end %>
+      
+      <% unless @page.description.blank? %>
+        <div class="description"><%= simple_format(sanitize(@page.description)) %></div>
+      <% end %>
+      
+      <!-- show blog and comments.  blog is deactivated right now until
+      its interface has been created -->
+      <%= render :partial => 'blog' if false and @comic.show_blog %>
+      <%= render :partial => 'comments' if @comic.show_comments %>
+      
+     <br />
+    
+  </div>
+  <!-- end DIV "page" -->
+</div>
+<!-- end DIV "content" -->
+
+<%= render :partial => 'sidebar'  %>

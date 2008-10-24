@@ -1,0 +1,40 @@
+
+<% 
+@page_title = "#{h @comic.name} comments | Comicsplosion"
+@body_style = "comments" 
+@rss_feed = comments_path(:comic_id => @comic.alias) + ".rss"
+%>
+
+
+<div class="content">
+
+<h1><%= "Comments for #{link_to h(@comic.name), comic_path(@comic.alias)}" %></h1>
+
+<h4 class="timeframe">Show all comments posted within:</h4>
+<p class="timeframe"><%= link_to_unless_current "the last day", comments_path(:comic_id => @comic.alias, :days => 1) %> | <%= link_to_unless_current "the last 2 days", comments_path(:comic_id => @comic.alias, :days => 2) %> | <%= link_to_unless_current "the last week", comments_path(:comic_id => @comic.alias, :days => 7) %> | <%= link_to_unless_current "the last 2 weeks", comments_path(:comic_id => @comic.alias, :days => 14) %> | <%= link_to_unless_current "the last month", comments_path(:comic_id => @comic.alias, :days => 30) %>
+
+<% @page = nil %>  
+<% @comments_by_page.each do |page, comments| %>
+    <% @page = page %>
+  <div class="comments">
+      <h3><%= link_to page_number(page), comic_path(:id => page.comic.alias, :page => page.locate) %></h3>
+    <div class="image">
+      <%= link_to image_tag(file_image(page,'thumb'), :class => "comment"), comic_path(:id => page.comic.alias, :page => page.locate) %>
+      <p class="comment_count"><%= pluralize(page.comments.length,'comment') %></p>
+    </div>
+    <!-- end DIV "image" -->
+    <% comments.each do |comment| %>
+        <%= render :partial => 'comment', :locals => { :comment => comment } %>
+    <% end %>
+  </div>
+  <!-- end DIV "comments" -->
+
+  <div class="clear"></div>
+<% end %>
+<!-- end @comments.each -->
+
+</div>
+<!-- end DIV "content" -->
+
+
+<p class="subscribe_feed"><%= link_to("#{image_tag('/images/feed.png')} Subscribe to comments on #{h(@comic.name)}", (comments_path(:comic_id => @comic.alias) + ".rss")) %></p>

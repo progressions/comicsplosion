@@ -1,0 +1,11 @@
+<% @page_title = "New comic | Congratulations! | Comicplosion" %>
+
+<h1>Congratulations!</h1>
+
+<p>Congratulations!  You have completed entering your new comic.   What do you want to do now?</p>
+
+<p><%= link_to "Edit this comic.", edit_comic_path(@comic.alias) %></p>
+
+<p><%= link_to "Add more pages to this comic.", add_pages_path(@comic.alias) %></p>
+
+<p><%= link_to "Go back to the home page.", home_path %></p>

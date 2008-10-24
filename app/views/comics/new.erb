@@ -1,0 +1,31 @@
+<% 
+@page_title = "New comic | Basic Information | Comicplosion" 
+@body_style = "users"
+%>
+
+<div class="new">
+  <h1>Enter basic information about your comic</h1>
+  <%= error_messages_for :comic %>
+  
+  <% form_for(:comic, :url => comics_path) do |f| %>
+  
+    <p class="label">What's your comic called?</p>
+    <p class="examples">(Examples: "Peanuts", "The Adventures of X-Hero", "My Webcomic Life", etc)</p>
+    <p class="input"><%= f.text_field :name %></p>
+      
+    <p class="label">What would you like for the web address of your comic?</p>
+    <p class="examples">(Examples: "peanuts", "x_hero", "mywebcomiclife")</p>
+    <p class="instructions">You must choose a single word with no spaces or punctuation, between 3 and 25 characters long.</p>
+    <p class="instructions">You will be able to view your comic on the web at http://comics.colemanation.org/<em>youralias</em>/</p>
+    <p class="input"><%= f.text_field :alias %></p>
+    
+    <p class="label">Enter a description for your comic.</p>
+    <p class="input"><%= f.text_area :description, :rows => 8, :cols => 50 %></p>
+      
+    <div class="button-bar">
+    	<p class="save"><%= submit_tag "SAVE AND CONTINUE" %></p>
+    	<p class="cancel">Or <%= link_to "cancel and go back to the home page.", home_path %></p>
+    </div>
+  
+  <% end %>
+</div>

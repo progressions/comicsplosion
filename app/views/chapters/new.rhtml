@@ -1,0 +1,31 @@
+<h1>New chapter</h1>
+
+<%= error_messages_for :chapter %>
+
+<% form_for(:chapter, :url => chapters_path) do |f| %>
+  <p>
+    <b>Name</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <b>Comic</b><br />
+    <%= f.text_field :comic_id %>
+  </p>
+
+  <p>
+    <b>Page</b><br />
+    <%= f.text_field :page_id %>
+  </p>
+
+  <p>
+    <b>Live</b><br />
+    <%= f.check_box :live %>
+  </p>
+
+  <p>
+    <%= submit_tag "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', chapters_path %>

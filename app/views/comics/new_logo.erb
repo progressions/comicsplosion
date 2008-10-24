@@ -1,0 +1,32 @@
+<% @page_title = "New comic | Enter a logo | Comicplosion" %>
+
+<h1>Enter a logo for your comic</h1>
+<%= error_messages_for :comic %>
+
+<% if @comic.image %>
+
+<% @logo = @comic.image %>
+
+<div class="comic_logo">
+  <%= image_tag url_for_file_column('comic', 'image', 'thumb') %>
+</div>
+<!-- end DIV "comic_logo" -->
+
+<p class="confirm">Is this logo acceptable?  If not, upload a new image below.</p>
+
+<% end %>
+  
+<% form_for(:comic, :url => new_logo_path, :html => {:multipart => true}) do |f| %>
+
+<p class="label">Enter a logo image for your comic.</p>
+<p class="explanation">Some details will be given here about the logo's size and orientation.</p>
+<p class="input"><%= file_column_field 'comic', 'image' %></p>
+
+  
+<div class="button-bar">
+	<p class="save"><%= submit_tag "SAVE AND CONTINUE" %></p>
+	<p class="skip"><%= link_to "Continue without uploading a logo.", new_page_path(:comic_id => @comic) %></p>
+	<p class="cancel">Or <%= link_to "cancel and go back to the home page.", home_path %></p>
+</div>
+
+<% end %>

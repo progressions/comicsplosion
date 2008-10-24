@@ -1,0 +1,18 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+progressions_1:
+  id: 1
+  name: page 1
+  description:
+  created_by: 1
+  updated_by :1 
+  created_on: 2007-01-22
+  updated_on: 2007-01-22
+  published_on: 2007-01-22
+  live: 1
+two:
+  id: 2
+  name: MyString
+  description: MyText
+  created_on: 2007-01-22
+  updated_on: 2007-01-22
+  published_on: 2007-01-22

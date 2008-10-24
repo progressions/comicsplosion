@@ -1,0 +1,54 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+<%
+  def today
+    Time.now.to_s(:db)
+  end
+  
+  def two_hours_ago
+    2.hours.ago.to_s(:db)
+  end
+  
+  def yesterday
+    1.day.ago.to_s(:db)
+  end
+  
+  def three_days_ago
+    3.days.ago.to_s(:db)
+  end
+%>
+progressions_one:
+  id: 1
+  content: This is the first page and I think it's awesome.  In fact, it's so awesome that I wrote a comment about it.
+  created_on: <%= three_days_ago %>
+  updated_on: <%= three_days_ago %>
+  created_by: 1
+  updated_by: 1
+  page_id: 1
+  comic_id: 1
+progressions_two:
+  id: 2
+  content: When I said I wrote a comment about it, I meant that one I was writing at the time, you know?
+  created_on: <%= yesterday %>
+  updated_on: <%= yesterday %>
+  created_by: 3
+  updated_by: 3
+  page_id: 1
+  comic_id: 1  
+progressions_three:
+  id: 3
+  content: This is another comment, but it's about this page instead of the first page.
+  created_on: <%= three_days_ago %>
+  updated_on: <%= three_days_ago %>
+  created_by: 3
+  updated_by: 3
+  page_id: 2
+  comic_id: 1
+progressions_four:
+  id: 4
+  content: I don't know why you keep writing comments referring to your previous comments.  I wouldn't ever do that, which is why I write comments like this one here.
+  created_on: <%= 5.minutes.ago.to_s(:db) %>
+  updated_on: <%= 5.minutes.ago.to_s(:db) %>
+  created_by: 4
+  updated_by: 4
+  page_id: 2
+  comic_id: 1

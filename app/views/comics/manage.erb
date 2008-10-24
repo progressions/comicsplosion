@@ -1,0 +1,28 @@
+<% @page_title = "Manage your comics" %>
+
+<div class="manage">
+  
+<%= link_to 'New comic', new_comic_path if current_user_has_role? :creator %>
+<br /><br />
+
+<% for comic in @comics %>
+
+<div class="comic">
+  <h3><%= link_to h(comic.name), edit_comic_path(comic.alias) %></h3>
+  <%
+    @total_pages = comic.pages.length
+    @live_pages = comic.live_pages.length
+    @unpublished = @total_pages - @live_pages
+  %>
+  <p class="created_on">created on <%= comic.created_on.strftime("%B %d, %Y") %></p>
+  <p class="page_count"><%= pluralize(@total_pages, "page") %><% if @unpublished > 0 %>, <%= pluralize(@live_pages, "live page") %>, <%= pluralize(@unpublished, "unpublished page") %>
+    <% end %>
+  </p>
+  
+
+</div>
+<!-- end DIV "comic" -->
+
+<% end %>
+
+</div>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  name: Chapter 1
+  comic_id: 1
+  page_id: 1
+  created_by: 1
+  created_on: 2007-02-16 06:16:58
+  updated_on: 2007-02-16 06:16:58
+  live: false
+two:
+  id: 2
+  name: Chapter 2
+  comic_id: 1
+  page_id: 4
+  created_by: 1
+  created_on: 2007-02-16 06:16:58
+  updated_on: 2007-02-16 06:16:58
+  live: false

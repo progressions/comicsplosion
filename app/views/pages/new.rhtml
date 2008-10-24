@@ -1,0 +1,29 @@
+<% @page_title = "Add pages | Comicplosion" %>
+
+<h1>Upload a page to <%= @comic.name%></h1>
+
+ <% unless flash[:notice].blank? %>
+  <p class="flash"><%= flash[:notice] %></p>
+<% end %>
+
+<%= error_messages_for :page %>
+
+<%= debug @page %>
+
+<% form_for(:page, :url => pages_path(:comic_id => @comic.alias), 
+                    :html => {:multipart => true}) do |f| %>
+
+  <p class="label">Upload a page to your comic.</p>
+  <p class="explanation">The first step is to upload the image file. Once the file is uploaded, you will be able to edit the details of the  page. </p>
+  
+  <dl>
+    <dt>Upload page:</dt>
+    <dd><%= f.file_field :uploaded_data %></dd>
+  </dl>
+  
+  <div class="button-bar">
+  	<p class="save"><%= submit_tag "UPLOAD" %></p>
+  	<p class="cancel">Or <%= link_to "go back to the home page without uploading a page.", home_path %></p>
+  </div>
+
+<% end %>

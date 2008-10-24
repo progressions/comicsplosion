@@ -1,0 +1,66 @@
+<div class="index">
+  
+<p><%= link_to 'New comic', new_comic_path if signed_in? %>
+</p>
+
+ <% unless flash[:notice].blank? %>
+  <p class="flash"><%= flash[:notice] %></p>
+<% end %>
+ 
+<div class="comics">
+<% for comic in @comics %>
+  <% @comic = comic %>
+  <% unless @comic.pages.empty? %>
+  <div class="comic">
+  
+    <h3 class="name"><%= link_to h(comic.name), comic_path(comic.alias) %> (<%= pluralize(comic.live_pages.length, "page") %>)</h3>
+    
+    <% if false %>
+      <div class="images">
+        <% max = @comic.live_pages.length %>
+        <% min = max - 5 %>
+        <% min = 1 if min < 1 %>
+        <% max.downto(min) do |i| %>
+          <%= link_to image_tag(file_image(@comic.live_pages[i-1],"tiny")), comic_path_from(@comic.live_pages[i-1]) %>
+        <% end %>
+      </div>
+    <% end %>
+    
+    <%= link_to( image_tag(url_for_file_column("comic", "image", "thumb"), :class => "comic"), comic_path(comic.alias) ) if @comic.image %>
+    <div class="description">
+      <%= simple_format comic.description %>
+    </div>
+    <!-- end DIV "description" -->
+    
+    <div class="user_listing">
+      <p class="created_by">created on <%=h comic.created_on.strftime("%B %d, %Y") %> by <%= link_to(comic.created_by.fullname, person_path(comic.created_by.alias)) %>
+      </p>
+    </div>
+    <!-- end DIV "user_listing" -->
+    
+    <div class="comic_info">
+      
+      <p class="schedule">        
+      <% unless @comic.schedule.blank? %>This comic updates <b><%= h @comic.schedule %></b>. 
+    <% end %>
+    <%= link_to "Start where you left off...", recent_path(comic.alias) %></p>
+      <p><% last_updated comic %></p>
+    </div>
+    <!-- end DIV "comic_info" -->
+    
+    <% unless @comic.new_comments.empty? %>
+      <p class="new_comments"><%= link_to pluralize(@comic.new_comments.length, "new comment"), recent_comments(@comic) %></p>
+    <% end %>
+    <div class="clear"></div> 
+  </div>
+  <!-- end DIV "comic" -->
+<% end %>
+
+<% end %>
+</div>
+<!-- end DIV "comics" -->
+
+<br />
+
+</div>
+<!-- end DIV "index" -->

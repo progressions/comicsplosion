@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+progressions:
+  id: 1
+  name: progressions
+sexy:
+  id: 2
+  name: sexy
+chastity:
+  id: 3
+  name: chastity
+towers:
+  id: 4
+  name: towers

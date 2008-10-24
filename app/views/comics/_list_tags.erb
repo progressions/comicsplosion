@@ -1,0 +1,9 @@
+
+<ul class="tags">
+  <% for tag in @comic.tags %>
+    <li><%= link_to h(tag.name), tag_path(tag.name) %>
+      <% if @comic.created_by == current_user %>
+        <%= link_to_remote '[x]', :url => { :controller => 'comics', :action => 'remove_tag', :id => @comic, :tag => tag.name } %>
+      <% end %></li>
+  <% end %>
+</ul>

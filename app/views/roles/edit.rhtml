@@ -1,0 +1,17 @@
+<h1>Editing role</h1>
+
+<%= error_messages_for :role %>
+
+<% form_for(:role, :url => role_path(@role), :html => { :method => :put }) do |f| %>
+  <p>
+    <b>Name</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', role_path(@role) %> |
+<%= link_to 'Back', roles_path %>

@@ -1,0 +1,7 @@
+
+mysql:
+  :adapter: mysql
+  database: attachment_fu_plugin_test
+  username: jcoleman_root
+  password: furgle
+  host: localhost

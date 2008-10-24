@@ -1,0 +1,34 @@
+<% unless @other_comics.length <= 0 %>
+    <div class="other_comics">
+      <h3 class="other_comics">Other comics by<br /><%= h @comic.created_by.fullname %>:</h3>
+    
+    <% for comic in @other_comics %>
+    
+      <% if comic.last_updated.nil? %>
+        <% comic.last_updated = Time.now %>
+        <% comic.save %>
+      <% end %>
+      
+          <%
+            classname = "listing"
+            
+            if comic.last_updated < 6.months.ago
+              classname += "_old"
+            end
+            if comic.last_updated < 9.months.ago
+              classname += "_oldest"
+            end
+          %>
+          <div class="<%= classname %>">  
+            <h4><%= link_to h(comic.name), comic_path(comic), :class => "other_comics" %></h4>
+            <p class="last_updated"><%= link_to last_updated(comic), comic_path(comic), :class => "other_comics"  %></p>          
+            <%= link_to (image_tag "160x63", :size => "145x50", :class => 'comic_icon'), comic_path(comic.alias) %>
+          </div> <!-- end DIV "listing" -->
+      
+    <% end %>
+    
+      <p><%= link_to "View " + @comic.created_by.fullname + "'s comics...", person_path(@comic.created_by.alias) %></p>
+      
+    </div>
+    <!-- end DIV "other_comics" -->
+  <% end %>

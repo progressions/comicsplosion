@@ -1,0 +1,21 @@
+<% unless flash[:notice].blank? %>
+  <p class="flash"><%= flash[:notice] %></p>
+<% end %>
+
+<h3><%= h @comic.name %></h3>
+<p>Drag and drop the pages into the correct order.</p>
+<ul id="page_list">
+  <% @pages.each do |page| %>
+    <li id="item_<%= page.id %>">
+      <%= page.name %> <%= link_to "edit", edit_page_path(:comic_id => @comic, :id => page) %>
+    </li>
+  <% end %>
+</ul>
+
+<p><%= link_to 'Back to <b>' + @comic.name + '</b>', edit_comic_path(@comic.alias) %></p>
+<p><%= link_to "Add more pages to this comic.", new_page_path(:comic_id => @comic.alias) %></p>
+
+<%= sortable_element 'page_list',
+:url => sort_pages_path(:comic_id => @comic.alias),
+:complete => visual_effect(:highlight, 'page_list' )
+%>

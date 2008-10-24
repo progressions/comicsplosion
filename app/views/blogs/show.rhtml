@@ -1,0 +1,38 @@
+<p>
+  <b>Name:</b>
+  <%=h @blog.name %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @blog.content %>
+</p>
+
+<p>
+  <b>Created on:</b>
+  <%=h @blog.created_on %>
+</p>
+
+<p>
+  <b>Updated on:</b>
+  <%=h @blog.updated_on %>
+</p>
+
+<p>
+  <b>Created by:</b>
+  <%=h @blog.created_by %>
+</p>
+
+<p>
+  <b>Updated by:</b>
+  <%=h @blog.updated_by %>
+</p>
+
+<p>
+  <b>Comic:</b>
+  <%=h @blog.comic_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>

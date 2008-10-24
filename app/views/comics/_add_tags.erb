@@ -1,0 +1,16 @@
+
+  <script type="text/javascript">
+    <!--
+        Field.focus('tags');
+    //-->
+    </script> 
+    
+  <% form_remote_tag :method => 'post', :url => add_tag_path(@comic) do %>    
+  
+  <p><%= text_field_tag 'tags' %><br />
+      <p>
+    <%= submit_tag "Add" %>
+  </p>
+    </p>
+    
+  <% end %>

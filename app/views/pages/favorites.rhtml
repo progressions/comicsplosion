@@ -1,0 +1,26 @@
+<% 
+@page_title = "Favorites: #{@comic.name} page #{@pagenum} of #{@total_pages} | Comicsbrowser"
+%>
+
+<div class="image"> <%= link_to image_tag(@page.public_filename(:medium)), comic_path(:id => @comic.alias, :page => @page.locate)  %></div>
+<h2>The following people call this page a favorite:</h2>
+<div class="favorites">
+  <% @favorites.each do |favorite| %>
+    <div class="favorite">
+      <% user = favorite.created_by %>
+      <%= 
+        
+        link_to(
+          image_tag(
+            file_image(user,'medium'), 
+            :class => "user_image", :size => "50x50"
+          ), person_path(user.alias)) 
+        
+        %>    
+        <p><%= user.image %></p>
+      <p class="user"><%= link_to "#{user.fullname}", user_path(user.alias) %></p>
+    </div>
+    <!-- end DIV "favorite" -->
+  <% end %>
+</div>
+<!-- end DIV "favorites" -->

@@ -1,0 +1,12 @@
+    <div class="account">
+      <% request.remote_ip %>
+      <% if signed_in? %>      
+        <p><%= "Signed in as " + link_to(current_username_or_fullname, edit_user_path(current_user)) + "." %>
+          <%= link_to "Sign out.", :controller => "admin", :action => "signout" %>
+        </p>  
+      <% else %>
+        <p><%= link_to "Sign in", signin_path %> or <%= link_to "Register for an account.", new_user_path %></p>    
+      <% end %>
+      
+    </div>
+    <!-- end DIV "account" -->

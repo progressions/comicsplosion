@@ -1,0 +1,23 @@
+xml.instruct!
+
+xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/", "xmlns:content" => "http://purl.org/rss/1.0/modules/content/" do
+  xml.channel do
+
+    xml.title       "#{h @comic.name}'s latest comments"
+    xml.link        comment_url(@comic.alias)
+    xml.pubDate     CGI.rfc1123_date @comments.first.created_on if @comments.any?
+    xml.description "This is a comments feed!"
+
+    @comments.each do |comment|
+      xml.item do
+        xml.title       "Comment about #{@comic.name}, #{comment.page.name}"
+        xml.link        page_url(comment.page)
+        xml.description comment.content
+        xml.pubDate     CGI.rfc1123_date comment.created_on
+        xml.guid        show_page_with_comment_url(comment)
+        xml.author      comment.created_by.email
+      end
+    end
+
+  end
+end

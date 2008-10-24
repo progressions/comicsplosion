@@ -1,0 +1,37 @@
+<h1>Editing favorite</h1>
+
+<%= error_messages_for :favorite %>
+
+<% form_for(:favorite, :url => favorite_path(@favorite), :html => { :method => :put }) do |f| %>
+  <p>
+    <b>Page</b><br />
+    <%= f.text_field :page_id %>
+  </p>
+
+  <p>
+    <b>Created by</b><br />
+    <%= f.text_field :created_by %>
+  </p>
+
+  <p>
+    <b>Created on</b><br />
+    <%= f.datetime_select :created_on %>
+  </p>
+
+  <p>
+    <b>Updated on</b><br />
+    <%= f.datetime_select :updated_on %>
+  </p>
+
+  <p>
+    <b>Comic</b><br />
+    <%= f.text_field :comic_id %>
+  </p>
+
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', favorite_path(@favorite) %> |
+<%= link_to 'Back', favorites_path %>

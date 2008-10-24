@@ -1,0 +1,49 @@
+<div class="nav">
+      <div class="buttons">
+
+        <div class="prev_next">
+          <%
+          
+            prev_image = image_tag('/images/nav_prev_on.png', :class => 'previous', :alt => 'previous')
+            next_image = image_tag('/images/nav_next_on.png', :class => 'next', :alt => 'next')
+            prev_image_off = image_tag('/images/nav_prev_off.png', :class => 'previous', :alt => 'previous')
+            next_image_off = image_tag('/images/nav_next_off.png', :class => 'next', :alt => 'next')
+            
+            first_image_on_src = "/images/first_on.png"
+            first_image_off_src = "/images/first_off.png"
+            latest_image_on_src = "/images/latest_on.png"
+            latest_image_off_src = "/images/latest_off.png"
+          %>
+          <%= unless @page_first
+            link_to(prev_image, comic_path(:page => @page_previous)) 
+          else
+            prev_image_off
+          end
+            %>
+          <% unless @page_last %>
+            <%= link_to(next_image, comic_path(:page => @page_next)) %>
+          <% else %>
+            <%=  next_image_off %>
+          <% end %>
+        </div>
+        <!-- end DIV "prev_next" -->
+        
+        <div class="first_latest">
+          <% unless @page_first %>
+            <%= link_to image_tag(first_image_on_src, :id => "first"), comic_path(:id => @comic.alias, :page => 1) %>
+          <% else %>
+            <%= image_tag(first_image_off_src, :id => "first") %>
+          <% end %>
+          <% unless @page_last %>
+            <%= link_to image_tag(latest_image_on_src, :id => "latest"), comic_path(:id => @comic.alias, :page => @live_pages.length) %>
+          <% else %>
+            <%= image_tag(latest_image_off_src, :id => "latest") %>
+          <% end %>
+        </div>
+        <!-- end DIV "first_latest" -->
+      </div>
+      <!-- end DIV "buttons" -->
+      
+
+    </div>
+    <!-- end DIV "nav" -->

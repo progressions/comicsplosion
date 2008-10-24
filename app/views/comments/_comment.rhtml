@@ -1,0 +1,22 @@
+<% show_links ||= false %>
+<% image_size = show_links ? 'medium' : 'thumb' %>
+        <div class="comment">
+           <%= user_image(comment.created_by, image_size) %>
+          <a name="comment<%= comment.id %>"></a>
+          <div class="body">
+            <%= simple_format(sanitize(comment.content)) %>
+            <p class="created_by">
+           <%= image_tag("new") if (Time.now - comment.created_on < 2.days) %>            
+            <%= image_tag("comment") %> Posted 
+            <%= time_ago_in_words(comment.created_on) %> ago by <%= link_to h(comment.created_by.fullname), person_path(comment.created_by.alias) %>. 
+            <% if show_links %>
+              (<%= link_to "link", "#{request.request_uri}\#comment#{comment.id}" %><% if mine? comment or current_user_has_role? :admin %>&nbsp;| 
+              
+              <%= link_to "edit", edit_comment_url(:comic_id => @comic.alias, :id => comment) %>&nbsp;|
+              
+              <%= link_to "delete", comment_url(:comic_id => @comic.alias, :id => comment), :method => :delete %>&nbsp;<% end %>)</p>
+            <% end %>
+          </div>
+          <!-- end DIV "body" -->
+        </div> 
+        <!-- end DIV "comment" -->

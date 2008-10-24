@@ -1,0 +1,9 @@
+<div class="manage">
+
+<% for comic in @comics %>
+
+<h3><%= link_to h(comic.name), edit_comic_path %></h3>
+
+<% end %>
+
+</div>

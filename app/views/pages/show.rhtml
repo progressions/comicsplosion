@@ -1,0 +1,30 @@
+<p>
+  <b>Name:</b>
+  <%=h @page.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @page.description %>
+</p>
+
+<p>Image: <%= @page.image %></p>
+<%= image_tag url_for_file_column("page", "image") %>
+<p>
+  <b>Created on:</b>
+  <%=h @page.created_on %>
+</p>
+
+<p>
+  <b>Updated on:</b>
+  <%=h @page.updated_on %>
+</p>
+
+<p>
+  <b>Published on:</b>
+  <%=h @page.published_on %>
+</p>
+
+
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Back', pages_path %>

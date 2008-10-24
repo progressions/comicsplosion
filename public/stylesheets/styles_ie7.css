@@ -1,0 +1,13 @@
+	div.header {
+	  margin-bottom: 1em;
+	  }
+	
+ body {
+  font-size: 80%;
+ }
+ h4 { font-size: 105%; }
+ h3 { font-size: 120%; }
+ h2 { font-size: 150%; }
+ h1 { font-size: 170%; }
+ 
+ div.other_comics h4 { line-height: 140%; }

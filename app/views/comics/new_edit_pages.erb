@@ -1,0 +1,58 @@
+<% @page_title = "New comic | Edit your comic's pages | Comicplosion" %>
+<% @body_style = "edit_pages" %>
+
+<div class="content">
+  
+<h1>Edit your comic's pages</h1>
+
+<%= error_messages_for :comic %>
+
+  <p class="label">Edit the details of your comic's pages.</p>
+  <p class="explanation">You will be able to edit all of this information, change the order of your pages, and add or delete pages from your comic at any time.</p>
+<p class="explanation">(Eventually this may also somehow feature the drag-and-drop page numbering system, possibly on a separate "Reorder pages" link, or perhaps a column on the right side.</p>
+
+
+ <% unless flash[:notice].blank? %>
+  <p class="flash"><%= flash[:notice] %></p>
+<% end %>
+
+<p><% params.inspect %></p>
+<p><% session.inspect %></p>
+
+<%= form_tag(new_edit_pages_path) %>
+
+<p>Your comic <%= h(@comic.name) %> has <%= pluralize(@comic.pages.length, "page") %>.</p>
+  <div class="edit_pages">
+    
+  <% for page in @pages %>
+    <% @page = page %>
+    <div class="edit_page">
+      <div class="image_preview"><%= link_to(image_tag(url_for_file_column('page', 'image', 'thumb'), :class => "page"), image_preview_path(@page), :popup => true) %></div>
+      <div class="page_details">
+        <p class="label">Page name (optional)</p>
+        <p class="name"><%= text_field('page[]', 'name', :value => page.name ) %></p>
+        
+        <p class="label">Description(optional)</p>
+        <p class="description"><%= text_area("page[]", 'description', :rows => 4) %></p>
+        <p class="date_select"><%= date_select('page[]', 'published_on', :default => page.published_on) %></p>
+      </div>
+    </div>
+  <% end %>
+  
+  </div>
+  <!-- end DIV "edit_pages" -->
+  
+  <div class="button-bar">
+  	<p class="save"><%= submit_tag "SAVE CHANGES" %></p>
+	  <p class="skip"><%= link_to "Add more pages to this comic.", add_pages_path %></p>	  
+	  <% if session[:new_comic] %>
+	    <p class="skip"><%= link_to "Continue without uploading any more pages.", new_publish_path %></p>
+	  <% end %>
+	  <p class="cancel">Or <%= link_to "finish and go back to the home page.", home_path %></p>
+  </div>
+  <!-- end DIV "button-bar" -->
+  
+<%= end_form_tag %>
+
+</div>
+<!-- end DIV "content" -->

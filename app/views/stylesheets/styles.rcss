@@ -1,0 +1,707 @@
+
+<% 
+@colors = {
+  :background_color => "black",
+  :text_color => "#aaa",
+  :secondary_text => "#777",
+  :solid_text => "white",
+  :title_color => "orange",
+  :primary_color => "#6C4FA1",
+  :utility_text => "#555",
+  :basic_background => "#333"
+}.merge(@colors)
+
+@background_color = @colors[:background_color]
+@basic_background = @colors[:basic_background]
+@text_color = @colors[:text_color]
+@solid_text = @colors[:solid_text]
+@secondary_text = @colors[:secondary_text]
+@utility_text = @colors[:utility_text]
+@title_color = @colors[:title_color]
+@primary_color = @colors[:primary_color]
+
+%>
+
+
+
+/* =GLOBAL SETTINGS */
+
+f* { margin:0; padding:0; border:0; }
+
+/* I'll set this stuff later. */
+
+
+ /* =PAGE SETTINGS */
+
+
+a:focus { -moz-outline-style: none; }/*this avoids having image replacement sections display a dotted outline*/
+
+	html {
+	  background-color: <%= @background_color %>;
+	  color: <%= @text_color %>;
+		font-family: Arial, Helvetica, "sans-serif";
+		font-size: 0.9em;
+		margin: 0px;
+		padding: 0px;
+		padding-bottom: 15px;
+	}
+	body {
+		margin: 0px;
+		padding: 0px;
+	}
+	/* IE-only hack to get IE 6 to use slightly larger type */
+	* html body {
+		font-size: 1.2em;
+		line-height: 1.2em;
+	}
+	
+	.flash {
+	  background-color: #333;
+	  border: 1px solid <%= @primary_color %>;
+	  color: <%= @title_color %>;
+	  font-size: 1.1em;
+	  font-weight: bold;
+	  padding: 3px;
+	  text-align: center;	  
+	  width: 100%;
+	 }
+	
+	
+	
+	h1, h2 {
+	  color: <%= @title_color %>;
+	  font-weight: normal;
+	}
+
+	
+/* =STRUCTURE */
+	
+	div.header {
+	  border-bottom: 1px dotted <%= @primary_color %>;
+	}
+	
+	div.header div.account {
+	  float: right;
+	  margin: 0px;
+	  padding: 0px;
+	}
+	
+	div.footer {
+	  border-top: 1px dotted #333;
+	  clear: both;
+	  margin-top: 15px;
+	}
+	
+	div.clear {
+	  clear: both;
+	}
+	
+	input[type=”text”], textarea {
+	  font-family: Arial, Helvetica, "sans-serif";
+	  font-size: 1em;
+	}
+	
+	div.outer_container { 
+	  width: 960px;
+	  margin: auto;
+	  padding: 15px 45px;
+	}
+	
+	body.signin div.outer_container {
+	  width: 350px;
+	  margin: auto;
+	  margin-top: 100px;
+	}
+	body.signin dl {
+	  margin-top: 25px;
+	}
+	body.signin dl dd {
+	  float: left;
+	  margin-bottom: 10px;
+	  font-size: 1.2em;
+	}
+	body.signin dl dt {
+	  margin-left: 120px;
+	  margin-bottom: 10px;
+	}
+	body.signin dl dt input {
+	  font-size: 1.2em;
+	  height: 20px;
+	  vertical-align: center;
+	  width: 170px;
+	}
+	body.signin p.button_bar {
+	  text-align: right;
+	  margin-left: 120px;
+	  width: 175px;
+	}
+	
+	div.container {
+	  }
+	
+	body.pages div.content {
+	  float: left;
+	  width: 780px;
+	  }
+	  
+	body.pages div.content div.page {
+	  margin-top: 20px;
+	}
+	
+	body.pages div.page img.page {
+	  display: block;
+	  margin: auto;
+	}
+	  
+	body.pages div.content div.entry {
+	  border-left: 3px solid #444;
+	  border-top: 1px solid #444;
+	  font-size: 0.8em;
+	  margin-top: 2em;
+	  padding-left: 22px;
+	  width: 500px;
+	}
+	
+	body.pages div.content div.comments {
+	  font-size: 0.8em;
+	  width: 350px;
+	}
+	body.pages div.content div.comments p.comments_link {
+    margin-top: 25px; 
+	}
+	
+	
+	div.comics div.images img {
+	  padding: 2px;
+	}
+	div.comics div.images img:hover {
+	  background-color: <%= @title_color %>;
+	  opacity: 1;
+	  }
+	
+	
+	body.pages div.comments div.comment {
+	  border-top: 1px dotted #222;
+	  margin-top: 20px;
+	}
+	body.pages div.comments div.comment div.body {
+	  margin-left: 65px;
+	  padding; 0;
+	}
+	body.pages div.comments div.new_comment {
+	  margin-top: 40px;
+	}
+	body.pages div.comments img.user_image {
+	  float: left;
+	  padding-top: 15px;
+	}
+	body.pages div.comments div.new_comment textarea {
+	  width: 350px;
+	}
+	body.pages div.comments div.new_comment p.button_bar {
+	  text-align: right;
+	  width: 355px;
+	}
+	
+	p.created_by {
+	  color: <%= @utility_text %>;
+	}
+	
+	
+	body.pages div.sidebar {
+	  margin-top: -5px;
+	  width: 160px;
+	  float: right;
+	}
+	
+	body.pages div.sidebar div.user {
+	  width: 160px;
+	  margin: 15px 0;
+	  }
+	
+	body.pages div.sidebar div.user_image {
+	  float: left;
+	}
+	body.pages div.sidebar div.user_image img {
+	  padding: 5px 5px 5px 0;
+	}
+	
+	body.pages div.sidebar {
+	  color: <%= @secondary_text %>
+	  
+	}	
+	
+	body.pages div.sidebar p.created_by {
+	  font-size: 0.75em;
+	}
+	body.pages div.sidebar p.created_by a {
+	  font-size: 1.2em;
+	}
+	
+	body.pages div.sidebar p.byline {
+	  ccolor: <%= @utility_text %>;
+	  font-size: 0.8em;
+	  margin: 0;
+	  margin-bottom: 3px;
+	  padding: 0;
+	}
+	
+	p.users_comics {
+	  background-color: #232323;
+	  border: 1px solid #333;
+	  padding: 5px;
+	}
+	
+	body.pages div.sidebar div.nav {
+	  background-color: <%= @basic_background %>;
+	  border: 1px solid #444;	  
+	  padding: 3px;	  
+	  width: 154px;
+	}
+	
+	body.pages div.sidebar div.nav div.prev_next {
+	  float: left;
+	  width: 90px;
+	}
+	div.nav img {
+	  opacity: 0.4;
+	}
+	div.nav a img {
+	  opacity: 0.75;
+	}
+	div.nav a:hover img {
+	  opacity: 1;
+	}
+	
+	body.pages div.info {
+	  background-color: #222;
+	  color: #666;
+	  margin-top: 14px;
+	  padding: 3px;
+	  width: 100%;
+	}
+	body.pages div.info a {
+	  color: #666;
+	}
+	body.pages div.info a:hover {
+	  background-color: transparent; 
+	  color: #fff;
+	}
+	body.pages div.info a:hover img {
+	  opacity: 1; 
+	  filter: alpha(opacity=100);
+	}
+	
+	body.pages div.info img {
+	  opacity: .35;
+	  filter: alpha(opacity=35);
+	  height: 1%;
+  }
+  body.pages div.info .fave img {
+    opacity: .75;
+    filter: alpha(opacity=75);
+    }
+	
+	body.pages div.info .pagecount {
+	  float: right;
+	}
+	body.pages .pagecount span.pagenum {
+	  color: #777;
+	  font-size: 1.0em;
+	  font-weight: bold;
+	}
+	body.pages div.info p {
+	  margin: 0;
+	  padding: 0;
+	}
+	
+	
+	div.comic_info {
+	  margin-top: 25px;
+	}
+	div.comic_info  {
+	  font-size: 0.80em;
+	}
+	  
+	
+	
+	div.other_comics div {
+	  margin-top: 10px;
+	  padding: 0px;
+	}
+	div.other_comics div:hover, 
+	div.other_comics div:hover a,
+	div.other_comics div:hover a img {
+	  background-color: <%= @basic_background %>;
+    color: <%= @title_color %>;
+	}
+	div.other_comics h4 {	  
+	  margin: 0;
+	  padding: 0;
+	}
+	
+	div.other_comics img.comic_icon {
+	  opacity: 0.8;
+	  padding: 7px 6px 5px 6px;
+	  width: 145px;
+	}
+	div.other_comics a img.comic_icon:hover {
+	}
+	
+	div.other_comics div.listing_oldest:hover img,
+	div.other_comics div.listing_old:hover img,
+	div.other_comics div.listing:hover img {
+	  opacity: 1;
+	}
+	
+	div.other_comics div.listing {
+	  background-color: #282828;
+	  border: 1px solid #444;
+	}
+	div.listing_old {
+	  background-color: #222;
+	  border: 1px solid #333;
+	  color: #777;
+    display: block;
+    padding: 5px;
+  }
+  
+  div.listing_oldest {
+	  background-color: #121212;
+	  border: 1px solid #333;
+	  color: #555;
+    display: block;
+    padding: 5px;  
+  }
+	
+	div.listing a.other_comics {
+    color: #aaa;
+    display: block;
+    padding: 5px;
+  }
+
+  div.listing_old a.other_comics {
+	  background-color: #222;
+	  color: #777;
+    display: block;
+    padding: 5px;
+  }
+  div.listing_oldest a.other_comics {
+	  background-color: #121212;
+	  color: #555;
+    display: block;
+    padding: 5px;  
+  }
+    
+
+
+	
+	div.sidebar h3 {
+	  font-weight: normal;
+	} 
+	div.sidebar div.other_comics h4 {
+	  margin: 0px;
+	  padding: 0px;
+	}
+	
+	div.sidebar div.other_comics p.last_updated {
+	  font-size: 0.75em;
+	  margin: 0px;
+	  margin-top: -8px;
+	  padding: 0px;
+	}
+	    
+
+	
+	body.pages div.sidebar div.status {
+	  border-top: 1px dotted #555;
+	  font-size: 0.75em;
+	}
+	
+	body.comics div.index {
+	  padding-top: 25px;
+	  width: 600px;
+	}
+	
+	body.comics div.comic {
+	  margin-bottom: 25px;
+	}
+	body.comics div.comic h3 {
+	  margin: 0;
+	}
+	body.comics div.comic img.comic {
+	  background-color: #333;
+	  border: 1px solid #555;
+	  float: left;
+	  margin: 10px 10px 0px 0;
+	  padding: 5px;
+	}
+	
+	body.edit_pages div.content div.edit_pages {
+	  width: 600px;
+	}
+	
+	body.edit_pages div.content div.edit_page {	  
+    border-top: 1px dotted #ccc;
+    margin-bottom: 20px;
+  }
+
+  body.edit_pages div.content div.image_preview {
+    float: center;
+    margin: auto;
+    margin-top: 18px;
+  }
+    
+  body.edit_pages div.content div.page_details {
+    margin: 0;
+    padding: 0;
+  }
+
+  div.comic_description {
+    background-color: #333;
+    border: 1px solid #666;
+    display: none;
+    padding: 0 15px;
+    width: 300px;
+  }
+  
+  /* =USERS */
+  
+  body.users p.label {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 30px;
+  }
+  body.users p.examples {
+    color: <%= @secondary_text %>;
+    font-size: 0.8em;
+    margin: 0;
+    margin-top: 5px;
+  }
+  body.users p.instructions {
+    color: <%= @secondary_text %>;
+    font-size: 0.8em;
+  }
+  body.users textarea#comic_copyright,
+  body.users input#comic_tags {
+    width: 400px;
+  }
+  
+  
+  /* =COMMENTS */
+
+  body.comments div.content {
+    margin: auto;
+    width: 550px;
+  }
+	
+	body.comments div.edit textarea {
+	  width: 375px;
+	}
+	input[type="submit"] {
+	  background-color: <%= @primary_color %>;
+	  color: <%= @solid_text %>;
+	  text-transform: uppercase;
+	}
+
+  body.comments div.comments {
+    border-top: 1px dotted #333;
+    color: <%= @secondary_text %>;
+    margin-bottom: 45px;
+    width: 550px;
+  }
+  body.comments div.comments div.body {
+    margin-left: 35px;
+  }
+  body.comments.edit div.comments,
+  body.comments.edit div.content {
+    width: 600px;
+  }
+  
+  
+  body.comments div.comment {
+    margin-bottom: 20px;
+    margin-left: 200px;
+    width: 350px;
+  }
+  
+  body.comments div.image {
+    float: left;
+    mmargin-top: 15px;
+    width: 190px;
+  }
+  body.comments img.user_image {
+    float: left;
+  }
+  body.comments p.created_by {
+    font-size: 0.8em;
+    margin-top: -10px;
+  }
+  div.comment p.created_by img {
+  }
+  body.comments h3, body.comments h3 a {
+    color: <%= @title_color %>;
+    margin: 10px 0;
+    padding: 0;
+  }
+  body.comments h3 a:hover {
+    background-color: transparent;
+    color: <%= @title_color %>;
+    text-decoration: underline;
+  }
+  body.comments div.image p {
+    color: <%= @utility_text %>;
+    margin: 5px 0;
+    padding: 0;
+  }
+  
+  body.comics div.index h3 a {
+    color: <%= @title_color %>;
+  }
+	body.comics div.index h3 a:hover {
+	  background-color: transparent;
+    color: <%= @title_color %>;
+    text-decoration: underline;
+  }
+  div.description h1,
+  div.description h2,
+  div.description h3,
+  div.description h4,
+  div.comment h1, 
+  div.comment h2,   
+  div.comment h3, 
+  div.comment h4 {
+    color: <%= @text_color %>;
+  }
+	
+/* =TEXT SETTINGS */
+
+
+  a {
+    color: <%= @primary_color %>;
+    text-decoration: none;
+  }
+  
+  p a:hover, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
+    background-color: <%= @primary_color %>;
+    color: <%= @background_color %>;
+  }
+  
+  div.buttons a:hover img {
+    background-color: transparent;
+  }
+   
+  
+  div.header, div.container, div.footer {
+    mmargin: 0 25px;
+  }
+  div.outer_container
+ 
+  
+  
+  div.header div.nav a:hover {
+    background-color: black;
+    text-decoration: underline;
+  }
+
+  .header .nav h5 {
+    font-size: 1em;
+    margin: 0;
+    padding: 5px 0px;
+  }
+  .header .nav h5 a {
+    color: <%= @primary_color %>;
+    text-decoration: none;
+  }
+  .header .nav h5 a:hover {
+    text-decoration: underline;
+  }
+  
+  div#list_tags {
+    color: <%= @utility_text %>;
+  }
+  div.tags h3 {
+    ccolor: #666;
+  }
+  
+  div#list_tags a {
+    color: <%= @secondary_text %>;
+  }
+  div#list_tags a:hover {
+    background-color: <%= @background_color %>;
+    color: <%= @solid_text %>;
+  }
+  
+  h3.other_comics a {
+  }
+  h3.other_comics a:hover {
+  }
+    
+  div.header div.account p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  img, img:hover { 
+    background-color: transparent;
+    border: none;
+    margin: 0px; 
+    padding: 0px;
+    vertical-align: bottom;
+  }
+  
+  img.previous {
+    background-color: transparent;
+    }
+  img.previous:hover {
+    background-color: transparent;
+    }
+    
+  body.pages h2.name {
+    color: white;
+   }
+  
+  
+  body.pages div.sidebar h3.current_comic a, body.pages div.sidebar h3.current_comic  {
+    color: <%= @title_color %>;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+  body.pages div.sidebar h3.current_comic a:hover {
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  body.pages p.page_number {
+    display: none;
+	  background-color: #333;
+	  border: 1px solid #444;	  
+    color: #666;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin: 0px;
+    margin-bottom: 3px;
+    padding: 3px;
+    text-align: left;
+    width: 154px;
+  }
+  
+  body.pages p.navigate {
+    font-size: 0.9em;
+  }
+  
+  div.edit div.description {
+    width: 350px;
+  }
+  
+  .inplaceeditor-form
+  input[type=”text”] {
+    width:350px;
+    }
+    
+  .highlight {
+    color: green;
+  }
+      
+  

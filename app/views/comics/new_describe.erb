@@ -1,0 +1,35 @@
+<% 
+@page_title = "New comic | Describe your comic | Comicplosion" 
+@body_style = "users"
+%>
+
+<div class="comic_description">
+  <h3>Name: <%= h @comic.name %></h3>
+  <h4 class="alias">Web address: </h4>
+  <p class="alias">http://comics.colemanation.org/<%= h @comic.alias %></p>
+  <h4 class="description">Description:</h4>
+  <p class="description"><%= simple_format @comic.description %></p>
+</div>
+
+<h1>Describe your comic</h1>
+
+<div class="describe">
+  <%= error_messages_for :comic %>
+  
+  <% form_for(:comic, :url => new_describe_path) do |f| %>
+  <p class="label">What kind of copyright license does your comic use?</p>
+  <p class="examples">(Example: "Copyright 2007, All Rights Reserved.", "Creative Commons ...")</p>
+  <p class="input"><%= f.text_area :copyright, :rows => 2, :cols => 35 %></p>
+  
+  <p class="label">Enter some tags to describe your comic.</p>
+  <p class="examples">(Examples: "funny action humor", "manga romance", "b&w autobio", etc)</p>
+  <p class="input"><%= text_field_tag 'comic_tags', '', :size => 34, :id => "comic_tags" %></p>
+  
+  
+  <div class="button-bar">
+  	<p class="save"><%= submit_tag "SAVE AND CONTINUE" %></p>
+  	<p class="cancel">Or <%= link_to "cancel and go back to the home page.", home_path %></p>
+  </div>
+</div>
+
+<% end %>

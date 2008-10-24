@@ -1,0 +1,27 @@
+<% @page_title = "Sign in to Comicsplosion" %>
+   
+    
+<p><%= flash[:notice] %></p>
+
+<% form_for(:user, :url => signin_path) do |f| %>
+  <dl>
+    <dd class="username">Username</dd>
+    <dt class="username"><%= f.text_field :username %></dd>
+    <dd class="password">Password</dd>
+    <dt class="password"><%= f.password_field :password %></dt>
+  </dd>
+
+  <p class="button_bar">
+    <%= submit_tag "Sign in" %>
+  </p>
+<% end %>
+<p>Don't have an account? <%= link_to "Register now", new_user_path %>.</p>
+<p><%= link_to "Forgot your password?", "" %></p>
+
+   
+   <script type="text/javascript">
+    <!--
+        Field.focus('user_username');
+    //-->
+    </script> 
+  </body>

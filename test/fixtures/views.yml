@@ -1,0 +1,66 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+view_one:
+  id: 1
+  resource_id: 1
+  resource_type: Page
+  created_by: 1
+  rating: 2
+  created_on: <%= today %> 
+  updated_on: <%= today %> 
+  views: 1
+view_two:
+  id: 2
+  resource_id: 2
+  resource_type: Page
+  created_by: 1
+  rating: 4 
+  created_on: <%= today %> 
+  updated_on: <%= today %> 
+  views: 2
+view_three:
+  id: 3
+  resource_id: 3
+  resource_type: Page
+  created_by: 1
+  rating: 4 
+  created_on: <%= today %> 
+  updated_on: <%= today %> 
+  views: 2
+view_four:
+  id: 4
+  resource_id: 4
+  resource_type: Page
+  created_by: 4
+  rating: 4 
+  created_on: <%= today %> 
+  updated_on: <%= today %> 
+  views: 2
+view_five:
+  id: 5
+  resource_id: 4
+  resource_type: Page
+  created_by: 4
+  rating: 4 
+  created_on: <%= today %> 
+  updated_on: <%= today %> 
+  views: 2
+view_six:
+  id: 6
+  resource_id: 4
+  resource_type: Page
+  created_by: 3
+  rating: 4 
+  created_on: <%= weeks_ago(1) %> 
+  updated_on: <%= yesterday %> 
+  views: 2
+<% 1.upto(5) do |i| %>
+view_susan_<%= i %>:
+  id: <%= 6 + i %>
+  resource_id: <%= i %>
+  resource_type: Page
+  created_by: 5
+  rating: 4 
+  created_on: <%= weeks_ago(6-i) %> 
+  updated_on: <%= days_ago(i) %> 
+  views: 2
+<% end %>

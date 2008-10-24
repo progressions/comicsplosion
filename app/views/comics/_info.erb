@@ -1,0 +1,24 @@
+<div class="info">
+  <p class="pagecount">page <span class="pagenum"><%= params[:page] %></span> of <span class="pagenum"><%= @total_pages %></span></p>
+        
+  <p class="options">
+    
+  <% if signed_in? %>
+
+<%= render :partial => 'favorite' %>
+      |
+  
+    <%= info_link "email", "email", "" %> | <%= info_link "script_add", "blog this", "" %>
+    <% if mine? @page %> | 
+    
+      <%= info_link "page_edit", "edit", edit_page_path(:comic_id => @comic.alias, :id => @page) %> | 
+      <%= info_link "cross", "delete", page_path(:comic_id => @comic.alias, :id => @page), :confirm => 'Are you sure?', :method => :delete %> | 
+      <%= info_link "page_add", "add a page", new_page_path(:comic_id => @comic.alias) %>
+    
+    <% end %>
+  <% end %>
+  &nbsp;</p>
+   
+  <span class="clear"></span>
+</div>
+<!-- end DIV "info" -->

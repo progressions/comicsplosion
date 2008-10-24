@@ -1,0 +1,30 @@
+<div id="comments">
+    <% unless @comments.empty? %>
+      <h2>Comments</h2>
+      <% @comments.each do |comment| %>
+        <%= render :partial => 'comments/comment', :locals => { :comment => comment, :show_links => true } %>
+      <% end %>
+      <p class="comments_link"><%= link_to "View all comments for #{h @page.comic.name}", recent_comments(@comic) %></p>
+    <% end %>
+    
+    <div class="new_comment">
+      <h2>New comment:</h2>
+      
+      <% if signed_in? %>
+        
+        <% form_for :comment, :url => comments_path(:comic_id => @comic.alias, :page => @page) do |f| %>
+        <%= f.text_area :content, :cols => '35', :rows => '6'  %>
+        <p class="button_bar"><%= submit_tag "Post" %></p>
+        <% end %>
+        
+      <% else %>
+        
+        <p>You are not currently signed in.  
+         <%= link_to "Sign in", signin_path %> or <%= link_to "register", new_user_path %> to add a comment.</p>  
+        
+      <% end %>
+    </div>
+    <!-- end DIV "new_comments -->
+  </div>
+  <!-- end DIV "comments" -->
+  

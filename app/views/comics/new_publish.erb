@@ -1,0 +1,25 @@
+<% @page_title = "New comic | Publish your comic | Comicplosion" %>
+
+<h1>Publish your comic</h1>
+
+<%= error_messages_for :comic %>
+
+<% form_for(:comic, :url => new_publish_path) do |f| %>
+
+<p class="label">How often is your comic updated?</p>
+<p class="example">(Example: "daily", "weekly", "whenever I get around to it...")</p>
+<p class="input"><%= f.text_field 'schedule' %></p>
+
+<p class="label">When do you want your comic to go live?</p>
+<p class="example">("tomorrow", "2 weeks from today", "Feb 10, 2007")</p>
+<p class="explanation">This will eventually be a text field where you can type in the date.  Leave it blank to publish your comic right away.</p>
+<p class="input"><%= f.date_select :published_on %></p>
+
+<p class="explanation">Your comic will not appear on the site until the publication date you choose.</p>
+
+<div class="button-bar">
+	<p class="save"><%= f.submit "SAVE AND PUBLISH" %></p>
+	<p class="cancel"><%= submit_tag "CANCEL" %></p>
+</div>
+
+<% end %>

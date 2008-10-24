@@ -1,0 +1,12 @@
+
+  <div class="user">
+    <div class="user_listing">
+      <div class="user_image">        
+        <%= user_image(@created_by, 'thumb') %>
+      </div>
+      <!-- end DIV "user_image" -->
+      <p class="created_by">created on <%=h @page.created_on.strftime("%B %d, %Y") %> by <%= link_to(@created_by.fullname, person_path(@created_by.alias)) %></p>  
+    </div>
+    <!-- end DIV "user_listing" -->
+  </div>
+  <!-- end DIV "user" -->

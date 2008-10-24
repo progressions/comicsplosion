@@ -1,0 +1,65 @@
+<% @page_title = "New comic | Edit your comic's pages | Comicplosion" %>
+<% @body_style = "edit_pages" %>
+
+<div class="content">
+  
+<h1>Edit pages for <%= h @comic.name %></h1>
+
+<%= error_messages_for :page %>
+
+  <p class="label">Edit the details of your comic's pages.</p>
+  <p class="explanation">You will be able to edit all of this information, change the order of your pages, and add or delete pages from your comic at any time.</p>
+<p class="explanation">(Eventually this may also somehow feature the drag-and-drop page numbering system, possibly on a separate "Reorder pages" link, or perhaps a column on the right side.</p>
+
+
+ <% unless flash[:notice].blank? %>
+  <p class="flash"><%= flash[:notice] %></p>
+<% end %>
+
+<% form_for(:page, :url => page_path(:comic_id => @comic.alias, :id => @page), :html => { :method => :put, :multipart => true }) do |f| %>
+<p>Your comic <%= h(@comic.name) %> has <%= pluralize(@comic.pages.length, "page") %>.</p>
+  <div class="edit_pages">
+    
+    <div class="edit_page">
+      <p>Created by <%= @page.created_by.fullname unless @page.created_by.blank? %></p>
+      <div class="image_preview"><%= image_tag(@page.public_filename) %></div>
+      <div class="page_details">
+        <p class="label">Page name (optional)</p>
+        <p class="name"><%= f.text_field :name %></p>
+        
+        
+  <dl>
+    <dt>Upload page:</dt>
+    <dd><%= f.file_field :uploaded_data %></dd>
+  </dl>
+        
+        <p class="label">Description(optional)</p>
+        <p class="description"><%= f.text_area :description, :rows => 4 %></p>
+        <p class="label">Live? </p>
+        <p class="checkbox"><%= f.check_box :live %></p>
+        <p class="label">Publish on</p>
+        <p class="date_select"><%= f.date_select :published_on %></p>
+      </div>
+      <!-- end DIV "page_details -->
+    </div>
+    <!-- end DIV "edit_page" -->
+
+  
+  </div>
+  <!-- end DIV "edit_pages" -->
+  
+  <div class="button-bar">
+  	<p class="save"><%= submit_tag "SAVE CHANGES" %></p>
+	  <p class="skip"><%= link_to "Add another page to this comic.", new_page_path(:comic_id => @comic.alias) %></p>	  
+	  <% if session[:new_comic] %>
+	    <p class="skip"><%= link_to "Continue without uploading any more pages.", new_publish_path %></p>
+	  <% end %>
+	  <p class="cancel">Or <%= link_to "finish editing pages.", :controller => "comics", :action => "list_pages", :id => @comic  %></p>
+  </div>
+  <!-- end DIV "button-bar" -->
+  
+<% end %>
+<!-- end form -->
+
+</div>
+<!-- end DIV "content" -->

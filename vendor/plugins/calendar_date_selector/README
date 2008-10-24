@@ -1,0 +1,28 @@
+CalendarDateSelector
+====================
+
+This is an extraction from the engines plugin by NHSB called datebocks(http://datebocks.inimit.com/).  
+You DO NOT need his plugin or engines to use datebocks.
+
+== Installation:
+
+  $ cd RAILS_ROOT
+  $ ruby script/plugin install svn://caboo.se/plugins/atmos/calendar_date_selector
+  # installs the needed js/images/css/html files
+  $ rake calendar:assets:install
+ 
+== Usage:
+  This plugin overrides the default date selector in FormBuilder. Code similar to the following
+  will get you a datebocks entry.  You don't need to change your controllers to handle the values submitted.
+
+  form_for(:post, @post) do |f|
+    f.text_field(:title)
+    f.text_area(:body)
+    f.date_select(:published_on)
+  end
+
+  You can also use the date_select_tag method if you want to use it outside of FormBuilder
+
+  form_tag do
+    date_select_tag(:published_on, @post.published_on)
+  end

@@ -1,0 +1,32 @@
+<h1>Listing chapters</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Comic</th>
+    <th>Page</th>
+    <th>Created by</th>
+    <th>Created on</th>
+    <th>Updated on</th>
+    <th>Live</th>
+  </tr>
+  
+<% for chapter in @chapters %>
+  <tr>
+    <td><%=h chapter.name %></td>
+    <td><%=h chapter.comic_id %></td>
+    <td><%=h chapter.page_id %></td>
+    <td><%=h chapter.created_by %></td>
+    <td><%=h chapter.created_on %></td>
+    <td><%=h chapter.updated_on %></td>
+    <td><%=h chapter.live %></td>
+    <td><%= link_to 'Show', chapter_path(chapter) %></td>
+    <td><%= link_to 'Edit', edit_chapter_path(chapter) %></td>
+    <td><%= link_to 'Destroy', chapter_path(chapter), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New chapter', new_chapter_path %>

@@ -1,0 +1,18 @@
+
+<br />
+
+<h2><%= @user.fullname %></h2>
+
+<p>Last signed in on <%= @user.last_signin.strftime("%B %d, %Y")  %></p>
+<p>
+  <b>Bio:</b>
+  <%= simple_format @user.bio %>
+</p>
+
+<p><%= link_to "#{@user.fullname}'s favorites", favorites_path(@user.alias) %><p>
+<h3>Comics:</h3>
+<% for comic in @comics %>
+
+<p><%= link_to h(comic.name), edit_comic_path(comic) %></p>
+
+<% end %>

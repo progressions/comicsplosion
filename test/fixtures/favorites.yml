@@ -1,0 +1,22 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  page_id: 1
+  created_by: 1
+  created_on: <% yesterday %>
+  updated_on: <% yesterday %>
+  comic_id: 1
+two:
+  id: 2
+  page_id: 2
+  created_by: 1
+  created_on: <% weeks_ago(2) %>
+  updated_on: <% weeks_ago(2) %>
+  comic_id: 1
+three:
+  id: 3
+  page_id: 2
+  created_by: 2
+  created_on: <% weeks_ago(2) %>
+  updated_on: <% weeks_ago(2) %>
+  comic_id: 1

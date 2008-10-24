@@ -1,0 +1,22 @@
+<h1>Editing permission</h1>
+
+<%= error_messages_for :permission %>
+
+<% form_for(:permission, :url => permission_path(@permission), :html => { :method => :put }) do |f| %>
+  <p>
+    <b>User</b><br />
+    <%= f.text_field :user_id %>
+  </p>
+
+  <p>
+    <b>Role</b><br />
+    <%= f.text_field :role_id %>
+  </p>
+
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', permission_path(@permission) %> |
+<%= link_to 'Back', permissions_path %>

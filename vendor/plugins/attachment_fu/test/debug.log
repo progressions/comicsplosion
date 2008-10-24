@@ -1,0 +1,45 @@
+# Logfile created on Wed Feb 28 01:03:42 -0600 2007 by logger.rb/1.5.2.9
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S02Unknown table 'attachments': DROP TABLE attachments[0m
+  [4;36;1mSQL (0.125000)[0m   [0;1mCREATE TABLE attachments (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `db_file_id` int(11) DEFAULT NULL, `parent_id` int(11) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `size` int(11) DEFAULT NULL, `width` int(11) DEFAULT NULL, `height` int(11) DEFAULT NULL, `aspect_ratio` float DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S02Unknown table 'file_attachments': DROP TABLE file_attachments[0m
+  [4;36;1mSQL (0.156000)[0m   [0;1mCREATE TABLE file_attachments (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent_id` int(11) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `size` int(11) DEFAULT NULL, `width` int(11) DEFAULT NULL, `height` int(11) DEFAULT NULL, `type` varchar(255) DEFAULT NULL, `aspect_ratio` float DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S02Unknown table 'image_science_attachments': DROP TABLE image_science_attachments[0m
+  [4;36;1mSQL (0.094000)[0m   [0;1mCREATE TABLE image_science_attachments (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent_id` int(11) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `size` int(11) DEFAULT NULL, `width` int(11) DEFAULT NULL, `height` int(11) DEFAULT NULL, `type` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S02Unknown table 'mini_magick_attachments': DROP TABLE mini_magick_attachments[0m
+  [4;36;1mSQL (0.109000)[0m   [0;1mCREATE TABLE mini_magick_attachments (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent_id` int(11) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `size` int(11) DEFAULT NULL, `width` int(11) DEFAULT NULL, `height` int(11) DEFAULT NULL, `type` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.047000)[0m   [0mDROP TABLE mini_magick_attachments[0m
+  [4;36;1mSQL (0.078000)[0m   [0;1mCREATE TABLE mini_magick_attachments (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent_id` int(11) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `size` int(11) DEFAULT NULL, `width` int(11) DEFAULT NULL, `height` int(11) DEFAULT NULL, `type` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S02Unknown table 'orphan_attachments': DROP TABLE orphan_attachments[0m
+  [4;36;1mSQL (0.141000)[0m   [0;1mCREATE TABLE orphan_attachments (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `db_file_id` int(11) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `size` int(11) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S02Unknown table 'minimal_attachments': DROP TABLE minimal_attachments[0m
+  [4;36;1mSQL (0.094000)[0m   [0;1mCREATE TABLE minimal_attachments (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `size` int(11) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S02Unknown table 'db_files': DROP TABLE db_files[0m
+  [4;36;1mSQL (0.093000)[0m   [0;1mCREATE TABLE db_files (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `data` blob DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S02Unknown table 's3_attachments': DROP TABLE s3_attachments[0m
+  [4;36;1mSQL (0.094000)[0m   [0;1mCREATE TABLE s3_attachments (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent_id` int(11) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `size` int(11) DEFAULT NULL, `width` int(11) DEFAULT NULL, `height` int(11) DEFAULT NULL, `type` varchar(255) DEFAULT NULL, `aspect_ratio` float DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.078000)[0m   [0;1mSHOW FIELDS FROM schema_info[0m
+  [4;35;1mSQL (0.047000)[0m   [0mUPDATE schema_info SET version = 0[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.047000)[0m   [0mDROP TABLE attachments[0m
+  [4;36;1mSQL (0.140000)[0m   [0;1mCREATE TABLE attachments (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `db_file_id` int(11) DEFAULT NULL, `parent_id` int(11) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `size` int(11) DEFAULT NULL, `width` int(11) DEFAULT NULL, `height` int(11) DEFAULT NULL, `aspect_ratio` float DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.047000)[0m   [0mDROP TABLE file_attachments[0m
+  [4;36;1mSQL (0.125000)[0m   [0;1mCREATE TABLE file_attachments (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent_id` int(11) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `size` int(11) DEFAULT NULL, `width` int(11) DEFAULT NULL, `height` int(11) DEFAULT NULL, `type` varchar(255) DEFAULT NULL, `aspect_ratio` float DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.063000)[0m   [0mDROP TABLE image_science_attachments[0m
+  [4;36;1mSQL (0.125000)[0m   [0;1mCREATE TABLE image_science_attachments (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent_id` int(11) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `size` int(11) DEFAULT NULL, `width` int(11) DEFAULT NULL, `height` int(11) DEFAULT NULL, `type` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.062000)[0m   [0mDROP TABLE mini_magick_attachments[0m
+  [4;36;1mSQL (0.125000)[0m   [0;1mCREATE TABLE mini_magick_attachments (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent_id` int(11) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `size` int(11) DEFAULT NULL, `width` int(11) DEFAULT NULL, `height` int(11) DEFAULT NULL, `type` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.063000)[0m   [0mDROP TABLE mini_magick_attachments[0m
+  [4;36;1mSQL (0.093000)[0m   [0;1mCREATE TABLE mini_magick_attachments (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent_id` int(11) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `size` int(11) DEFAULT NULL, `width` int(11) DEFAULT NULL, `height` int(11) DEFAULT NULL, `type` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.063000)[0m   [0mDROP TABLE orphan_attachments[0m
+  [4;36;1mSQL (0.140000)[0m   [0;1mCREATE TABLE orphan_attachments (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `db_file_id` int(11) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `size` int(11) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.079000)[0m   [0mDROP TABLE minimal_attachments[0m
+  [4;36;1mSQL (0.062000)[0m   [0;1mCREATE TABLE minimal_attachments (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `size` int(11) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.078000)[0m   [0mDROP TABLE db_files[0m
+  [4;36;1mSQL (0.094000)[0m   [0;1mCREATE TABLE db_files (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `data` blob DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.078000)[0m   [0mDROP TABLE s3_attachments[0m
+  [4;36;1mSQL (0.109000)[0m   [0;1mCREATE TABLE s3_attachments (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `parent_id` int(11) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `size` int(11) DEFAULT NULL, `width` int(11) DEFAULT NULL, `height` int(11) DEFAULT NULL, `type` varchar(255) DEFAULT NULL, `aspect_ratio` float DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSHOW FIELDS FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mUPDATE schema_info SET version = 0[0m

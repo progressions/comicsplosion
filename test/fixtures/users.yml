@@ -1,0 +1,82 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+<% SALT = "ipanema" unless defined?(SALT) %>
+
+jeff:
+  id: 1
+  username: jeff
+  firstname: Jeff
+  lastname: Coleman
+  alias: progressions
+  email: jeff@comicsplosion.com
+  image: self.jpg
+  login_count: 1
+  bio: This is Jeff's bio!
+  alias: progressions
+  last_signin: 2006-10-22
+  created_on: 2007-01-23 21:34:31
+  updated_on: 2007-01-23 21:34:31
+  password_salt: ipanema
+  password_hash: <%= User.encrypt('secret', SALT) %>
+fred:
+  id: 2
+  username: fred
+  firstname: Fred
+  lastname: Franklin
+  alias: fred
+  email: fred@franklin.com
+  image: 
+  login_count: 300
+  bio: Fred grew up in Cleveland where he ate sponge burgers.
+  alias: fred
+  last_signin: 2007-01-14
+  created_on: 2007-01-23 21:34:31
+  updated_on: 2007-01-23 21:34:31
+  password_salt: ipanema
+  password_hash: <%= User.encrypt('secret', SALT) %>
+cindy:
+  id: 3
+  username: cindy
+  firstname: Cindy
+  lastname: Williams
+  alias: cindy
+  email: shirley@laverne.com
+  image: 
+  login_count: 4
+  bio: Cindy loves comics and Laverne and Shirley!
+  alias: cindy
+  last_signin: 2007-01-26
+  created_on: 2007-01-23 21:34:31
+  updated_on: 2007-01-23 21:34:31
+  password_salt: ipanema
+  password_hash: <%= User.encrypt('secret', SALT) %>
+norton:
+  id: 4
+  username: norton
+  firstname: Norton
+  lastname: Everhard
+  alias: norton
+  email: norton@everhard.com
+  image: 
+  login_count: 1
+  bio: Norton Everhard spends his time peeping at Chastity Towers when he's not creating new comics.
+  alias: norton
+  last_signin: 2007-01-26
+  created_on: 2007-01-23 21:34:31
+  updated_on: 2007-01-23 21:34:31
+  password_salt: ipanema
+  password_hash: <%= User.encrypt('secret', SALT) %>
+susan:
+  id: 5
+  username: susan
+  firstname: Susan
+  lastname: Reader
+  email: susan@susan.com
+  image: 
+  login_count: 12
+  bio: I'm Susan and I like to read.
+  alias: susan
+  last_signin: 2007-01-26
+  created_on: 2007-01-23 21:34:31
+  updated_on: 2007-01-23 21:34:31
+  password_salt: ipanema
+  password_hash: <%= User.encrypt('secret', SALT) %>

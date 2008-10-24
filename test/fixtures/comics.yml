@@ -1,0 +1,73 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+progressions:
+  id: 1
+  name: Progressions
+  alias: progressions
+  description: It's a comic about progressions!
+  byline: by Jeff Coleman and Stephen Greenwood-Hyde
+  schedule: monthly
+  copyright: Copyright 2007 by Jeff Coleman and Stephen Greenwood-Hyde
+  image: 
+  created_by: 1
+  updated_by: 1
+  created_on: 2007-01-23 21:34:31
+  updated_on: 2007-01-23 21:34:31
+  published_on: 2007-01-23 21:34:31
+  live: 1
+  view_count: 0
+  show_blog: 1
+  show_comments: 1
+progressions_x:
+  id: 2
+  name: Progressions X
+  alias: progx
+  description: It's a raunchy comic about progressions!
+  byline: by Jeff Coleman and Stephen Greenwood-Hyde
+  schedule: weekly
+  copyright: Copyright 2007 by Jeff Coleman and Stephen Greenwood-Hyde
+  image: 
+  created_by: 1
+  updated_by: 1
+  created_on: 2007-01-23 21:34:31
+  updated_on: 2007-01-23 21:34:31
+  published_on: <%= yesterday %>
+  live: 1
+  view_count: 0
+  show_blog: 0
+  show_comments: 1
+chastity_towers:
+  id: 3
+  name: Chastity Towers
+  alias: chastity
+  description: It's a raunchy comic about schoolgirls!
+  byline: by Jeff Coleman
+  copyright: Copyright 2007 by Jeff Coleman
+  schedule: daily
+  image: 
+  created_by: 1
+  updated_by: 1
+  created_on: 2007-01-23 21:34:31
+  updated_on: 2007-01-23 21:34:31
+  published_on: <%= yesterday %>
+  live: 1
+  view_count: 0
+  show_blog: 0
+  show_comments: 0
+freds_funtime:
+  id: 4
+  name: Fred's Fun-Time!
+  alias: funtime
+  description: Have a fun time with Fred!
+  byline: by Fred Franklin
+  copyright: Copyright 2007 by Fred Franklin
+  schedule: weekly
+  image: 
+  created_by: 2
+  updated_by: 2
+  created_on: 2007-01-23 21:34:31
+  updated_on: 2007-01-23 21:34:31
+  published_on: 2007-02-10 21:34:31
+  live: 0
+  view_count: 0
+  show_blog: 1
+  show_comments: 1

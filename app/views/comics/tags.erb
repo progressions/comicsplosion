@@ -1,0 +1,11 @@
+<h2>Comics tagged with <%= h @tag %></h2>
+YO YO YO
+<% for comic in @comics %>
+
+  <% if comic.is_live? %>
+  
+  <h3><%= link_to h(comic.name), comic_path(comic.alias) %></h3>
+  
+  <% end %>
+
+<% end %>

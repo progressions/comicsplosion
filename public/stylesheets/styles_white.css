@@ -1,0 +1,167 @@
+ /* =PAGE SETTINGS */
+
+	html { 
+	  background-color: black;
+	  color: #aaa;
+		font-family: Arial, Helvetica, "sans-serif";
+		font-size: 0.9em;
+		margin: 0px;
+		padding: 0px;
+		padding-bottom: 15px;
+	}
+	body {
+		font-size: 1em;
+		line-height: 1.2em;
+		margin: 0px;
+		padding: 0px;
+	}
+	/* IE-only hack to get IE 6 to use slightly larger type */
+	* html body {
+		font-size: 1.2em;
+		line-height: 1.2em;
+	}
+	
+/* =STRUCTURE */
+	
+	div.header {
+	  border-bottom: 1px solid purple;
+	}
+	
+	div.header div.account {
+	  float: right;
+	  margin: 0px;
+	  padding: 0px;
+	}
+	
+	div.container { 
+	  width: 960px;
+	  margin: auto;
+	  padding: 10px;
+	}
+	
+	body.pages div.content {
+	  float: left;
+	  }
+	
+	body.pages div.sidebar {
+	  width: 160px;
+	  float: right;
+	}
+	
+	body.pages div.sidebar p.created_by {
+	  font-size: 0.75em;
+	}
+	
+	p.users_comics {
+	  background-color: #fefefe;
+	  border: 1px solid #eee;
+	  padding: 5px;
+	}
+	
+	body.pages div.sidebar div.nav {
+	  background-color: #eee;
+	  border: 1px solid #aaa;	  
+	  padding: 3px;	  
+	  width: 154px;
+	}
+	
+	body.pages div.sidebar div.nav div.buttons {
+	  width: 90px;
+	}
+	
+	body.pages div.sidebar div.pagecount {
+	  color: #aaa;
+	  float: right;
+	  font-size: 0.75em;
+	  width: 60px;
+	}
+	div.pagecount span.pagenum {
+	  font-size: 1.5em;
+	  font-weight: bold;
+	}
+	
+	div.comic_info {
+	  margin-top: 25px;
+	}
+	div.comic_info p {
+	  font-weight: 0.8em;
+	  }
+	
+	div.other_comics div.listing {
+	  background-color: #ededed;
+	  border: 1px solid #ddd;
+	  margin-top: 10px;
+	  padding: 5px;
+	}
+	
+	div.sidebar div.other_comics h3 {
+	  font-weight: normal;
+	  }
+	  
+	div.sidebar div.other_comics h4 {
+	  margin: 0px;
+	  padding: 0px;
+	}
+	
+	div.sidebar div.other_comics p.last_updated {
+	  font-size: 0.75em;
+	  margin: 0px;
+	  padding: 0px;
+	}
+	
+/* =TEXT SETTINGS */
+
+  a {
+    color: #6C4FA1;
+    text-decoration: none;
+  }
+  a:hover p, a:hover h5 {
+    background-color: #6C4FA1;
+    color: white;
+    text-decoration: underline;
+   }
+
+  .header .nav h5 {
+    font-size: 1em;
+    margin: 0;
+    padding: 5px 0px;
+  }
+  .header .nav h5 a {
+    background-color: white;
+    color: #6C4FA1;
+    text-decoration: none;
+  }
+  .header .nav h5 a:hover {
+    text-decoration: underline;
+  }
+  
+  div.header div.account p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  img, img:hover { 
+    border: none;
+    margin: 0px; 
+    padding: 0px;
+    vertical-align: bottom;
+  }
+  
+  img.previous {
+    background-color: none;
+    }
+  img.previous:hover {
+    background-color: none;
+    }
+    
+  body.pages h2.name {
+    color: black;
+   }
+  
+
+  h4.current_comic {
+    color: #6C4FA1;
+    font-size: 1em;
+    margin-bottom: 3px;
+  }
+  

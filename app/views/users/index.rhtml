@@ -1,0 +1,28 @@
+<% @page_title = "Listing users" %>
+
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Bio</th>
+  </tr>
+  
+<% for user in @users %>
+  <tr>
+    <td><%=h user.username %></td>
+    <td><%=h user.firstname %></td>
+    <td><%=h user.lastname %></td>
+    <td><%=h user.bio %></td>
+    <td><%= link_to 'Show', user_path(user) %></td>
+    <% if current_user_has_role? :admin %>
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      <td><%= link_to 'Destroy', user_path(user), :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />

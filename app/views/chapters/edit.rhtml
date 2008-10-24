@@ -1,0 +1,32 @@
+<h1>Editing chapter</h1>
+
+<%= error_messages_for :chapter %>
+
+<% form_for(:chapter, :url => chapter_path(@chapter), :html => { :method => :put }) do |f| %>
+  <p>
+    <b>Name</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <b>Comic</b><br />
+    <%= f.text_field :comic_id %>
+  </p>
+
+  <p>
+    <b>Page</b><br />
+    <%= f.text_field :page_id %>
+  </p>
+
+  <p>
+    <b>Live</b><br />
+    <%= f.check_box :live %>
+  </p>
+
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', chapter_path(@chapter) %> |
+<%= link_to 'Back', chapters_path %>

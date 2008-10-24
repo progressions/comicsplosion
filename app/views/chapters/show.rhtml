@@ -1,0 +1,38 @@
+<p>
+  <b>Name:</b>
+  <%=h @chapter.name %>
+</p>
+
+<p>
+  <b>Comic:</b>
+  <%=h @chapter.comic_id %>
+</p>
+
+<p>
+  <b>Page:</b>
+  <%=h @chapter.page_id %>
+</p>
+
+<p>
+  <b>Created by:</b>
+  <%=h @chapter.created_by %>
+</p>
+
+<p>
+  <b>Created on:</b>
+  <%=h @chapter.created_on %>
+</p>
+
+<p>
+  <b>Updated on:</b>
+  <%=h @chapter.updated_on %>
+</p>
+
+<p>
+  <b>Live:</b>
+  <%=h @chapter.live %>
+</p>
+
+
+<%= link_to 'Edit', edit_chapter_path(@chapter) %> |
+<%= link_to 'Back', chapters_path %>

@@ -1,0 +1,32 @@
+<h1>Listing blogs</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Content</th>
+    <th>Created on</th>
+    <th>Updated on</th>
+    <th>Created by</th>
+    <th>Updated by</th>
+    <th>Comic</th>
+  </tr>
+  
+<% for blog in @blogs %>
+  <tr>
+    <td><%=h blog.name %></td>
+    <td><%=h blog.content %></td>
+    <td><%=h blog.created_on %></td>
+    <td><%=h blog.updated_on %></td>
+    <td><%=h blog.created_by %></td>
+    <td><%=h blog.updated_by %></td>
+    <td><%=h blog.comic_id %></td>
+    <td><%= link_to 'Show', blog_path(blog) %></td>
+    <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+    <td><%= link_to 'Destroy', blog_path(blog), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New blog', new_blog_path %>

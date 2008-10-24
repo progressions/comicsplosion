@@ -1,0 +1,46 @@
+<h1>New blog</h1>
+
+<%= error_messages_for :blog %>
+
+<% form_for(:blog, :url => blogs_path) do |f| %>
+  <p>
+    <b>Name</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <b>Content</b><br />
+    <%= f.text_area :content %>
+  </p>
+
+  <p>
+    <b>Created on</b><br />
+    <%= f.datetime_select :created_on %>
+  </p>
+
+  <p>
+    <b>Updated on</b><br />
+    <%= f.datetime_select :updated_on %>
+  </p>
+
+  <p>
+    <b>Created by</b><br />
+    <%= f.text_field :created_by %>
+  </p>
+
+  <p>
+    <b>Updated by</b><br />
+    <%= f.text_field :updated_by %>
+  </p>
+
+  <p>
+    <b>Comic</b><br />
+    <%= f.text_field :comic_id %>
+  </p>
+
+  <p>
+    <%= submit_tag "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', blogs_path %>

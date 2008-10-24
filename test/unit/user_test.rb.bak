@@ -1,0 +1,99 @@
+require File.dirname(__FILE__) + '/../test_helper'
+
+class UserTest < Test::Unit::TestCase
+  fixtures :users
+  
+  def setup
+    @jeff = users(:jeff)
+    @jeff.password = "secret"
+    @jeff.save
+    @fred = users(:fred)
+    @fred.password = "barney"
+    @fred.save
+    @susan = users(:susan)
+    @susan.password = "secret99"
+    @susan.save
+  end
+
+  def test_values
+    assert_equal "secret", @jeff.password
+    assert "funky" != @jeff.password
+    assert_equal users(:jeff).alias, @jeff.alias
+    assert_equal users(:jeff).bio, @jeff.bio
+  end
+  
+  def test_create_susan
+    assert_equal "susan", @susan.username
+    assert_equal "secret99", @susan.password
+    @susan.password = "password"
+    assert @susan.save, @susan.errors.full_messages.join("; ")
+    assert_equal "password", @susan.password
+  end
+  
+  def test_update
+    assert_equal "progressions", @jeff.alias
+    @jeff.alias = "jeff"
+    assert @jeff.save, @jeff.errors.full_messages.join("; ")
+    @jeff.reload
+    assert_equal "jeff", @jeff.alias
+  end
+  
+  def test_destroy
+    assert_raise(RuntimeError) { @jeff.destroy }
+    @fred.destroy
+    assert_raise(ActiveRecord::RecordNotFound) { User.find(@fred.id) }
+  end
+  
+  def test_validate_password_length
+    assert_equal "secret", @jeff.password
+    @jeff.password = "lol"
+    assert !@jeff.save, @jeff.errors.full_messages.join("; ")
+    assert_equal 1, @jeff.errors.count
+    assert_equal "is too short (minimum is 6 characters)", @jeff.errors.on(:password)
+    @jeff.password ="waytoolongpassword"
+    assert !@jeff.save, @jeff.errors.full_messages.join("; ")
+    assert_equal 1, @jeff.errors.count
+    assert_equal "is too long (maximum is 10 characters)", @jeff.errors.on(:password)
+    test_create_susan
+    @susan.password = "password"
+    assert @susan.save, @susan.errors.full_messages.join("; ")
+    
+    @jeff.password = "password"
+    assert @jeff.save, @jeff.errors.full_messages.join("; ")
+    assert"password", @jeff.password
+  end
+    
+  def test_validate_password_format
+    assert_equal "secret", @jeff.password
+    @jeff.password = "sec ret"
+    assert !@jeff.save, @jeff.errors.full_messages.join("; ")
+    assert_equal 1, @jeff.errors.count
+    @jeff.password = "234%@#$"
+    assert @jeff.save, @jeff.errors.full_messages.join("; ")
+  end
+  
+  def test_validate_alias
+    @jeff.alias = ""
+    assert !@jeff.save
+    assert_equal 2, @jeff.errors.count
+    # assert_equal ["should be letters, nums, dash, underscore only", "can't be blank"], @jeff.errors.on(:alias)
+    @jeff.alias = @fred.alias
+    assert !@jeff.save, @jeff.errors.full_messages.join("; ")
+    assert_equal "has already been taken", @jeff.errors.on(:alias)
+  end
+  
+  def test_validate_username
+    assert_equal "jeff", @jeff.username
+    @jeff.username = "j eff"
+    assert !@jeff.save, @jeff.errors.full_messages.join("; ")
+    assert_equal "should be letters, nums, dash, underscore only", @jeff.errors.on(:username)    
+  end
+  
+  def test_validate_email
+    assert_equal users(:jeff).email, @jeff.email
+    @jeff.email = "myaddress"
+    assert !@jeff.save, @jeff.errors.full_messages.join("; ")
+    assert_equal "is not a valid email address", @jeff.errors.on(:email)
+  end
+
+end

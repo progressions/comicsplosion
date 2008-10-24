@@ -1,0 +1,52 @@
+<h1>Editing user</h1>
+
+<%= error_messages_for :user %>
+
+<% form_for(:user, :url => user_path(@user), :html => { :method => :put, :multipart => true }) do |f| %>
+  <p>
+    <b>Username</b><br />
+    <%= f.text_field :username %>
+  </p>
+
+  <p>
+    <b>Firstname</b><br />
+    <%= f.text_field :firstname %>
+  </p>
+
+  <p>
+    <b>Lastname</b><br />
+    <%= f.text_field :lastname %>
+  </p>
+    
+  <p>
+    <b>Email address</b><br />
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <b>Bio</b><br />
+    <%= f.text_area :bio %>
+  </p>
+
+  <p><%= link_to "Change password", :action => "change_password", :id => @user %></p>
+
+  <p>
+    <b>Alias</b><br />
+    <%= f.text_field :alias %>
+  </p>
+  
+  
+  <p>
+    <b>Image: </b><br />
+  <%= f.file_field :uploaded_data %>
+</p>
+    <p><%= check_box_tag 'no_image' %> Remove image?</p>
+    
+
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', user_path(@user) %> |
+<%= link_to 'Back', users_path %>

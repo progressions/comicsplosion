@@ -1,0 +1,28 @@
+xml.instruct!
+
+xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/", "xmlns:content" => "http://purl.org/rss/1.0/modules/content/" do
+  xml.channel do
+
+    xml.title       "Comicsplosion"
+    xml.link        url_for :only_path => false, :controller => 'feeds', :action => 'latest_pages'
+    xml.pubDate     CGI.rfc1123_date @pages.first.updated_on if @pages.any?
+    xml.description "This is a pages feed!"
+
+    @pages.each do |page|
+      @page = page
+      this_comic_url = comic_url(page.comic.alias)
+      
+      xml.item do
+        xml.title       page.full_name
+        xml.link        page_url(page)
+        xml.description page.description
+        xml.pubDate     CGI.rfc1123_date page.updated_on
+        xml.guid        page_url(page)
+        xml.author      "#{page.created_by.fullname}"
+        xml << "<content:encoded><![CDATA[#{page.inspect}<br />
+        #{link_to image_tag(url_for_file_column('page', 'image'), :border => '0', :alt => page.full_name), page_url(page)}]]></content:encoded>"
+      end
+    end
+
+  end
+end

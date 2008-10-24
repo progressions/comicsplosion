@@ -1,0 +1,54 @@
+<div class="edit">
+
+<h1>Editing comic</h1>
+
+<%= error_messages_for :comic %>
+
+<% form_for(:comic, :url => comic_path(@comic), :html => { :method => :put, :multipart => true }) do |f| %>
+  <p>Name:</p>
+  <h3><%= in_place_editor_field :comic, :name , {}, :highlight_color => "#777777", :highlight_end_color => "#000000" %></h3>
+  
+    <p>Alias:</p>
+  <h3><%= in_place_editor_field :comic, :alias, {}, :highlight_color => "#777777", :highlight_end_color => "#000000"  %></h3>
+
+<div class="description">
+  <p><b>Description</b></p>
+  <%= in_place_editor_field(:comic, :description, {}, :rows => 8, :highlight_color => "#777777", :highlight_end_color => "#000000") %>
+</div>
+  
+  <p>
+    <b>Copyright notice</b><br />
+    <%= f.text_area :copyright, :rows => 3 %>
+  </p>
+  
+  <p>
+    <b>Schedule</b><br />
+    <%= f.text_field :schedule %>
+  </p>
+  
+  <p>
+    <b>Allow comments?</b><br />
+    <%= f.check_box :show_comments %>
+  </p>
+  
+  <p>
+    <b>Live?</b><br />
+    <%= f.check_box :live %>
+  </p>
+  
+  
+  <p>Publish this comic on: <br />
+    <%= f.date_select :published_on %>
+  </p>
+
+<p><%= link_to 'Manage pages', pages_path(:comic_id => @comic.alias) %></p>
+
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', comic_path(@comic.alias) %> |
+<%= link_to 'Back', comics_path %>
+
+</div>

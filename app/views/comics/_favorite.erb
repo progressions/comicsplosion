@@ -1,0 +1,27 @@
+    <% if @page.favorite? %>
+<span id="favorite" class="fave">
+<%= image_tag "spinners/spinner.gif", :id => "spinner", :style => "display:none;" %>
+  <%= 
+    
+    link_to_remote(
+      image_tag("star") + " is a favorite", 
+      :url => favorite_page_path(:comic_id => @comic.alias, :id => @page), 
+      :method => 'post',
+      :before => "Element.show('spinner')"
+    ) 
+    
+    %></span> 
+<% else %>
+<span id="favorite">
+<%= image_tag "spinners/spinner.gif", :id => "spinner", :style => "display:none;" %>  
+  <%= 
+    
+    link_to_remote(
+      image_tag("star") + " add to favorites", 
+      :url => favorite_page_path(:comic_id => @comic.alias, :id => @page), 
+      :method => 'post',
+      :before => "Element.show('spinner')"
+    ) 
+    
+    %></span> 
+<% end %>

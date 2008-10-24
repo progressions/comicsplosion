@@ -1,0 +1,22 @@
+<h1>Listing permissions</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Role</th>
+  </tr>
+  
+<% for permission in @permissions %>
+  <tr>
+    <td><%=h permission.user_id %></td>
+    <td><%=h permission.role_id %></td>
+    <td><%= link_to 'Show', permission_path(permission) %></td>
+    <td><%= link_to 'Edit', edit_permission_path(permission) %></td>
+    <td><%= link_to 'Destroy', permission_path(permission), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New permission', new_permission_path %>

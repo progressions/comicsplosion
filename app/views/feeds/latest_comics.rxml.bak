@@ -1,0 +1,13 @@
+xml.instruct!
+
+xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
+  xml.channel do
+    xml.title       "Comicsbrowser's latest comics"
+    xml.link        url_for :only_path => false, :controller => 'feeds', :action => 'latest_comics'
+    xml.pubDate     CGI.rfc1123_date @comics.first.last_updated if @comics.any?
+    xml.description "This is a comics feed!"
+
+    @comics.build_xml("rss", 2.0,xml)
+
+  end
+end

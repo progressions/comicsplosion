@@ -1,0 +1,61 @@
+<div class="sidebar">
+  
+
+  <div class="comics_listing">
+    <%= render :partial => 'user' %>
+    <h3 class="current_comic"><%= link_to h(@comic.name), comic_path(@comic.alias) %></h3>
+    
+    <% unless @comic.byline.blank? %>
+      <p class="byline"><%= @comic.byline %></p>
+    <% end %>
+        
+    <p class="page_number">page <%= params[:page] %> of <%= @total_pages %>. </p>
+    <%= render :partial => 'nav' %>
+        
+    <p class="navigate"><%= link_to "Start reading where you left off...", recent_path(@comic.alias) %></p>
+    
+    <% if @comic.pages.length > 0 %>
+      <div class="comic_info">
+        <% unless @comic.schedule.blank? %>
+          <p class="schedule">This comic updates <b><%= h @comic.schedule %></b>.</p> 
+        <% end %>
+          
+        <p><%= last_updated(@comic) %></p>
+      </div>
+      <!-- end DIV "comic_info" -->
+    <% end %>
+    
+    <%= render :partial => 'other_comics' %>
+    
+    <div class="tags">
+      <h3>Tags:</h3>
+      <div id="list_tags">
+        <%= render :partial => 'list_tags' %>
+      </div>
+      <!-- DIV id="list_tags" -->
+      <div id="add_tag">
+        <p><%= link_to_remote 'Add a tag', :url => add_tag_path(@comic), :method => 'get' %></p>  
+      </div>
+      <!-- end DIV id="add_tag" -->
+    </div>
+    <!-- end DIV "tags" -->
+    
+    <div class="status">
+      <p class="viewed">This comic has been viewed <%= pluralize(@comic.view_count, "time") %>.</p>
+      <% faves = @page.favorites.length %>
+      <% if faves > 0 %>
+        <p class="favorites"><%= link_to pluralize(faves, 'person'), favorites_page_path(:comic_id => @comic.alias, :id => @page) %> <%= faves > 1 ? "call" : "calls" %> this page a favorite.</p>
+      <% end %>
+      <div class="copyright">
+        <%= simple_format @comic.copyright %>
+      </div>
+      <!-- end DIV "copyright" -->
+      <p class="subscribe_feed"><%= link_to("#{image_tag('/images/feed.png')} Subscribe to #{h(@comic.name)}", latest_comics_path(@comic.alias)) %></p>
+    </div>
+    <!-- end DIV "status" -->
+  
+  </div>
+<!-- end DIV "comics_listing" -->
+
+</div>
+<!-- end DIV "sidebar" -->
